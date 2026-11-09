@@ -1,0 +1,18 @@
+name: seed
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "osiris live log line" && seq 1 50 > out.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: seed-artifact
+          path: out.txt
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "a second job"
