@@ -1,0 +1,2 @@
+def osiris():
+    return 'live'
